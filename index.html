@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Da Gaems</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(to bottom right, #0f0f0f, #4b0082);
+            color: #00ff00;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            background-color: #1c1c1c;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #9400d3;
+            text-shadow: 2px 2px 5px #000000;
+        }
+
+        .about {
+            margin: 20px;
+            padding: 20px;
+            background-color: #1b1b1b;
+            border: 2px solid #9400d3;
+            border-radius: 8px;
+            text-shadow: 1px 1px 3px #000000;
+        }
+
+        .about h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #9400d3;
+            text-shadow: 2px 2px 5px #000000;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .game-link {
+            display: block;
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            font-size: 20px;
+            color: #00ff00;
+            background-color: #121212;
+            border: 2px solid #9400d3;
+            border-radius: 12px;
+            text-decoration: none;
+            text-shadow: 2px 2px 5px #000000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .game-link:hover {
+            transform: scale(1.05);
+            background-color: #1f1f1f;
+        }
+
+        .github-link {
+            display: inline-block;
+            margin: 50px auto;
+            padding: 20px 60px;
+            font-size: 18px;
+            color: #9400d3;
+            background-color: #141414;
+            text-decoration: none;
+            border-radius: 15px;
+            border: 3px solid #9400d3;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-shadow: 2px 2px 5px #000000;
+        }
+
+        .github-link:hover {
+            background-color: #9400d3;
+            color: #000000;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        .password-prompt {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1b1b1b;
+            border: 2px solid #9400d3;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .password-prompt input {
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .password-prompt button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #9400d3;
+            color: #000000;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .password-prompt button:hover {
+            background-color: #00ff00;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Games</h1>
+    </header>
+
+    <section class="about">
+        <h2>About</h2>
+        <p>Hello, this is my website for all my games however, they are password protected. Try and find the password.</p>
+    </section>
+
+    <div class="password-prompt">
+        <input type="password" id="password" placeholder="Enter the password...">
+        <button onclick="checkPassword()">Unlock Games</button>
+    </div>
+
+    <div class="container" id="games-container" style="display:none;">
+        <a href="https://example.com/game1" class="game-link">Game 1</a>
+        <a href="https://example.com/game2" class="game-link">Game 2</a>
+        <a href="https://example.com/game3" class="game-link">Game 3</a>
+    </div>
+
+    <footer>
+        <a href="https://github.com/yourusername" class="github-link">Check out My GitHub</a>
+    </footer>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = 'gaemspasswrd-sdijgf7'; 
+            if (password === correctPassword) {
+                document.getElementById('games-container').style.display = 'block';
+                document.querySelector('.password-prompt').style.display = 'none';
+            } else {
+                alert('Incorrect password! Access denied.');
+            }
+        }
+    </script>
+</body>
+</html>
